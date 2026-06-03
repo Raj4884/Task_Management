@@ -1,0 +1,1 @@
+# LogSentry shared schemas package

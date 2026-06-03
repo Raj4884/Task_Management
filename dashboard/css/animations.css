@@ -1,0 +1,48 @@
+/* ============================================
+   LogSentry - Animations
+   ============================================ */
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes gradientShift { 0%, 100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(30deg); } }
+
+.animate-fadeIn { animation: fadeIn 0.4s ease; }
+.animate-slideInUp { animation: slideInUp 0.4s var(--ease-out-expo); }
+.animate-slideInLeft { animation: slideInLeft 0.3s var(--ease-out-expo); }
+.animate-scaleIn { animation: scaleIn 0.3s var(--ease-out-expo); }
+
+.live-indicator {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    font-size: var(--text-xs); color: var(--color-success); font-weight: var(--weight-medium);
+}
+.live-indicator::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--color-success); animation: pulse 2s infinite;
+    box-shadow: 0 0 8px var(--color-success);
+}
+
+.spinner { width: 20px; height: 20px; border: 2px solid var(--border-default); border-top-color: var(--accent-primary); border-radius: 50%; animation: spin 0.8s linear infinite; }
+
+/* ── Page Transitions ── */
+.page-enter { animation: fadeIn 0.3s ease, slideInUp 0.3s var(--ease-out-expo); }
+
+/* ── Staggered Animations ── */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
