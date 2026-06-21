@@ -1,4 +1,4 @@
-# 🔍 LogSentry — Distributed Log Analysis System
+# 🔍Distributed Task Analysis System
 
 <div align="center">
 
